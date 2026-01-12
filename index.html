@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waryaam | Premium Shopping</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .page { display: none; }
+        .active-page { display: block; }
+        .amazon-dark { background-color: #131921; }
+        .amazon-light { background-color: #232f3e; }
+        .amazon-yellow { background-color: #febd69; }
+        .poster-bg {
+            background-image: linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=2070');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+
+    <nav class="amazon-dark text-white sticky top-0 z-50">
+        <div class="container mx-auto flex items-center justify-between p-3 px-6">
+            <h1 class="text-3xl font-bold text-white cursor-pointer" onclick="showPage('home')">WARYAAM<span class="text-orange-500">.</span></h1>
+            
+            <div class="hidden md:flex flex-1 mx-10">
+                <input type="text" placeholder="Search Waryaam..." class="w-full p-2 rounded-l-md text-black outline-none">
+                <button class="amazon-yellow p-2 rounded-r-md text-black font-bold px-5 hover:bg-yellow-500">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+
+            <div class="flex items-center space-x-6">
+                <div class="cursor-pointer group" onclick="showPage('login')">
+                    <p class="text-xs">Hello, Sign in</p>
+                    <p class="font-bold text-sm group-hover:underline">Account & Lists</p>
+                </div>
+                <div class="cursor-pointer relative" onclick="showPage('checkout')">
+                    <i class="fa-solid fa-cart-shopping text-2xl"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-orange-500 text-xs rounded-full px-1.5 font-bold">0</span>
+                </div>
+            </div>
+        </div>
+        <div class="amazon-light p-2 flex space-x-6 text-sm px-8 overflow-x-auto whitespace-nowrap">
+            <button onclick="showPage('home')" class="hover:border border-white px-2 py-1">Home</button>
+            <button onclick="showPage('exclusive')" class="text-yellow-400 font-bold hover:border border-white px-2 py-1">★ Exclusive Deals</button>
+            <button onclick="showPage('about')" class="hover:border border-white px-2 py-1">About Us</button>
+            <button onclick="showPage('contact')" class="hover:border border-white px-2 py-1">Contact Support</button>
+        </div>
+    </nav>
+
+    <div id="home" class="page active-page">
+        <div class="poster-bg h-[450px] flex items-center px-12">
+            <div class="text-white max-w-xl">
+                <span class="bg-red-600 text-xs font-bold px-3 py-1 rounded">LIMITED TIME DEAL</span>
+                <h2 class="text-6xl font-black mt-4 uppercase leading-tight">Flat 10% OFF <br>On All Items</h2>
+                <p class="text-lg mt-4 opacity-90 font-medium">Upgrade your lifestyle with Waryaam's premium collection. Valid for this week only!</p>
+                <button onclick="showPage('exclusive')" class="mt-8 amazon-yellow text-black px-10 py-4 font-bold rounded shadow-lg hover:bg-yellow-500 transition-transform transform hover:scale-105">Shop The Collection</button>
+            </div>
+        </div>
+
+        <div class="container mx-auto py-12 px-6">
+            <h3 class="text-2xl font-bold mb-8 flex items-center gap-2"><i class="fa-solid fa-fire text-orange-500"></i> Trending Products</h3>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="bg-white p-5 rounded border hover:shadow-2xl transition group">
+                    <div class="overflow-hidden rounded-md h-48">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500" class="w-full h-full object-cover group-hover:scale-110 transition">
+                    </div>
+                    <h4 class="font-bold mt-4 text-gray-800">Smart Watch Pro Series</h4>
+                    <div class="text-yellow-500 text-xs my-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i> <span class="text-blue-500 ml-2">4,231</span></div>
+                    <p class="text-2xl font-bold text-gray-900">$120.00 <span class="text-sm text-gray-400 line-through">$135.00</span></p>
+                    <button onclick="addToCart()" class="w-full mt-4 amazon-yellow py-2 rounded-lg font-bold border border-yellow-600 hover:bg-yellow-500">Add to Cart</button>
+                </div>
+                <div class="bg-white p-5 rounded border hover:shadow-2xl transition group">
+                    <div class="overflow-hidden rounded-md h-48">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500" class="w-full h-full object-cover group-hover:scale-110 transition">
+                    </div>
+                    <h4 class="font-bold mt-4 text-gray-800">Wireless Noise Cancelling</h4>
+                    <div class="text-yellow-500 text-xs my-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> <span class="text-blue-500 ml-2">1,120</span></div>
+                    <p class="text-2xl font-bold text-gray-900">$89.00 <span class="text-sm text-gray-400 line-through">$99.00</span></p>
+                    <button onclick="addToCart()" class="w-full mt-4 amazon-yellow py-2 rounded-lg font-bold border border-yellow-600 hover:bg-yellow-500">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="exclusive" class="page container mx-auto py-12 px-6">
+        <h2 class="text-4xl font-black text-center mb-12">WARYAAM <span class="text-orange-600 underline">EXCLUSIVE</span></h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div class="bg-black text-white p-10 rounded-2xl flex flex-col md:flex-row items-center gap-6 border-2 border-yellow-500">
+                <div class="flex-1">
+                    <span class="text-yellow-500 font-bold uppercase tracking-widest text-xs">Premium Choice</span>
+                    <h3 class="text-3xl font-bold mt-2">Elite Sound System</h3>
+                    <p class="my-4 opacity-70 italic">Available only for Waryaam Diamond Members. Experience sound like never before.</p>
+                    <button onclick="addToCart()" class="bg-yellow-500 text-black px-8 py-2 rounded-full font-black">Get Exclusive Access</button>
+                </div>
+                <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=400" class="w-48 h-48 rounded-xl object-cover shadow-2xl">
+            </div>
+        </div>
+    </div>
+
+    <div id="about" class="page container mx-auto py-20 px-6 text-center">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-4xl font-bold mb-8 text-gray-800 border-b-2 border-orange-500 pb-2 inline-block">Our Mission</h2>
+            <p class="text-xl text-gray-600 leading-relaxed">
+                Waryaam is more than just an e-commerce platform. We are a team of curators bringing the world's most premium products to your doorstep. Inspired by global giants like Amazon, we prioritize customer trust and product quality above everything else.
+            </p>
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1000" class="mt-10 rounded-xl shadow-lg">
+        </div>
+    </div>
+
+    <div id="contact" class="page container mx-auto py-12 px-6">
+        <div class="max-w-4xl mx-auto bg-white shadow-2xl rounded-2xl overflow-hidden flex flex-col md:flex-row">
+            <div class="amazon-dark p-10 text-white md:w-1/3">
+                <h3 class="text-2xl font-bold mb-6">Contact Info</h3>
+                <p class="flex items-center gap-3 mb-4 opacity-80"><i class="fa fa-envelope"></i> support@waryaam.com</p>
+                <p class="flex items-center gap-3 mb-4 opacity-80"><i class="fa fa-phone"></i> +92 300 1234567</p>
+                <p class="flex items-center gap-3 opacity-80"><i class="fa fa-location-dot"></i> Karachi, Pakistan</p>
+            </div>
+            <div class="p-10 flex-1">
+                <h2 class="text-3xl font-bold mb-6">Send a Message</h2>
+                <div class="space-y-4">
+                    <input type="text" placeholder="Full Name" class="w-full border-b-2 p-3 outline-none focus:border-orange-500 transition">
+                    <input type="email" placeholder="Email Address" class="w-full border-b-2 p-3 outline-none focus:border-orange-500 transition">
+                    <textarea placeholder="How can we help you?" class="w-full border-b-2 p-3 outline-none focus:border-orange-500 transition h-32"></textarea>
+                    <button class="amazon-yellow w-full py-3 rounded font-bold shadow hover:bg-yellow-500">Submit Request</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="checkout" class="page container mx-auto py-12 px-6">
+        <div class="flex flex-col md:flex-row gap-8">
+            <div class="flex-1 bg-white p-8 rounded shadow-md border-t-4 border-amazon-dark">
+                <h2 class="text-2xl font-bold mb-6">Shopping Cart</h2>
+                <div class="text-center py-10">
+                    <i class="fa-solid fa-cart-arrow-down text-5xl text-gray-200 mb-4"></i>
+                    <p class="text-gray-500">Your cart is currently being updated...</p>
+                </div>
+            </div>
+            <div class="w-full md:w-96 bg-white p-6 rounded shadow-md h-fit">
+                <h3 class="text-xl font-bold mb-4">Order Summary</h3>
+                <div class="flex justify-between mb-2"><span>Subtotal:</span><span id="subtotal">$0.00</span></div>
+                <div class="flex justify-between mb-2 text-green-600"><span>Discount (10%):</span><span>-$0.00</span></div>
+                <hr class="my-4">
+                <div class="flex justify-between font-bold text-2xl text-orange-600"><span>Total:</span><span>$0.00</span></div>
+                <button class="w-full amazon-yellow py-3 mt-6 rounded-lg font-bold shadow hover:bg-yellow-500">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="login" class="page flex items-center justify-center min-h-[80vh] bg-gray-50">
+        <div class="bg-white p-8 border rounded-lg shadow-md w-96">
+            <h2 class="text-3xl font-bold mb-6 text-center text-gray-800">Sign-In</h2>
+            <div class="space-y-4">
+                <label class="block text-sm font-bold">Email or mobile number</label>
+                <input type="text" class="w-full border border-gray-400 p-2 rounded focus:ring-1 focus:ring-orange-500 outline-none">
+                <label class="block text-sm font-bold">Password</label>
+                <input type="password" class="w-full border border-gray-400 p-2 rounded focus:ring-1 focus:ring-orange-500 outline-none">
+                <button class="w-full amazon-yellow py-2 rounded shadow font-bold hover:bg-yellow-500">Continue</button>
+            </div>
+            <p class="text-xs text-gray-500 mt-6 leading-relaxed">By continuing, you agree to Waryaam's Conditions of Use and Privacy Notice.</p>
+        </div>
+    </div>
+
+    <footer class="amazon-dark text-white pt-12 pb-6 mt-20">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 px-8">
+            <div>
+                <h4 class="text-2xl font-black text-white mb-4 italic">WARYAAM.</h4>
+                <p class="opacity-70 text-sm">Pakistan's premium e-commerce destination. Quality you can trust, delivered to your door.</p>
+            </div>
+            <div>
+                <h5 class="font-bold mb-4">Quick Links</h5>
+                <ul class="text-sm space-y-2 opacity-70">
+                    <li class="cursor-pointer hover:underline" onclick="showPage('home')">Back to Home</li>
+                    <li class="cursor-pointer hover:underline" onclick="showPage('exclusive')">Exclusive Items</li>
+                    <li class="cursor-pointer hover:underline" onclick="showPage('about')">Our Story</li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="font-bold mb-4">Customer Care</h5>
+                <ul class="text-sm space-y-2 opacity-70">
+                    <li>Track Orders</li>
+                    <li>Shipping Policy</li>
+                    <li class="cursor-pointer hover:underline" onclick="showPage('contact')">Help Center</li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="font-bold mb-4">Newsletter</h5>
+                <div class="flex">
+                    <input type="text" placeholder="Email" class="p-2 rounded-l text-black w-full outline-none">
+                    <button class="amazon-yellow text-black px-4 rounded-r font-bold">Join</button>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-12 border-t border-gray-700 pt-6 opacity-50 text-xs">
+            &copy; 2026 Waryaam Store. All Rights Reserved. Built with ❤️ for the world.
+        </div>
+    </footer>
+
+    <script>
+        // Page Navigation Control
+        function showPage(pageId) {
+            // Sab pages ko hide karo
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active-page');
+            });
+            // Sirf selected page dikhao
+            document.getElementById(pageId).classList.add('active-page');
+            // Scroll to top
+            window.scrollTo(0,0);
+        }
+
+        // Cart Logic
+        let count = 0;
+        function addToCart() {
+            count++;
+            document.getElementById('cart-count').innerText = count;
+            alert("Success! Item added to your Waryaam cart.");
+        }
+    </script>
+     <a href="w.r.html">page 2</a>
+      <a href="ww.html">page 3</a>
+</body>
+</html>
